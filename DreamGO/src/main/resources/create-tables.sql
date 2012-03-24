@@ -17,3 +17,5 @@ CREATE  TABLE `User` (
 ENGINE = InnoDB
 
 DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO `user` (`user_id`,`user_name`,`user_password`) VALUES(1,'nanfeng','123');
