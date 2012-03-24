@@ -10,7 +10,7 @@
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
-	<mvc:view-controller path="/" view-name="login" />
+	<mvc:view-controller path="/" view-name="entrance/login" />
 	<!-- config the dreamgo.properties -->
 	<util:properties id="profile"
 		location="/WEB-INF/profile/dreamgo.properties" />

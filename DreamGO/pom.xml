@@ -19,6 +19,7 @@
 		<log4j4slf4j.version>1.2.16</log4j4slf4j.version>
 		<mysql.version>5.1.18</mysql.version>
 		<apache.codec.version>1.6</apache.codec.version>
+		<apache.beanutils.version>1.8.3</apache.beanutils.version>
 		<org.aspectj.version>1.6.12</org.aspectj.version>
 	</properties>
 	<name>DreamGO Maven Webapp</name>
@@ -125,6 +126,12 @@
 			<artifactId>commons-codec</artifactId>
 			<version>${apache.codec.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${apache.beanutils.version}</version>
+		</dependency>
+
 
 		<!-- org.aspectj -->
 		<dependency>

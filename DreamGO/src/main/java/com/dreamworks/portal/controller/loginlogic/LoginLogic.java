@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dreamworks.portal.bean.User;
-import com.dreamworks.portal.daos.UserDao;
 import com.dreamworks.portal.services.UserService;
 
 @Controller
@@ -29,12 +28,14 @@ public class LoginLogic {
 		uservalid.validate(user, result);
 		if (result.hasErrors()) {
 			model.addAttribute("user", user);
-			return "login";
-		} else {
-			User u = userservice.findByUserName(user.getUserName());
-			System.out.println("u = " + u);
-			request.setAttribute("msg", "");
-			return "common/success";
+			return "entrance/login";
 		}
+		userservice.login(user, result);
+		if (result.hasErrors()) {
+			model.addAttribute("user", user);
+			return "entrance/login";
+		}
+		request.setAttribute("msg", "登陆成功");
+		return "common/success";
 	}
 }
