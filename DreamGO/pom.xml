@@ -9,9 +9,16 @@
 		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
 		<org.springframework.security.version>3.1.0.RELEASE</org.springframework.security.version>
 		<org.hibernate.version>4.1.0.Final</org.hibernate.version>
+		<org.hibernate.jpa.version>1.0.1.Final</org.hibernate.jpa.version>
 		<junit.version>4.10</junit.version>
 		<jstl.version>1.2</jstl.version>
-		<javax.validation>1.0.0.GA</javax.validation>
+		<javax.validation.version>1.0.0.GA</javax.validation.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<org.slf4j.version>1.5.8</org.slf4j.version>
+		<slf4j-api.version>1.5.6</slf4j-api.version>
+		<log4j4slf4j.version>1.2.16</log4j4slf4j.version>
+		<mysql.version>5.1.18</mysql.version>
+		<apache.codec.version>1.6</apache.codec.version>
 	</properties>
 	<name>DreamGO Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -28,28 +35,39 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${org.springframework.security.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
+
+
+		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${org.springframework.security.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version>
 		</dependency>
-		
-		<!--  JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>${javax.validation}</version>
-			<scope>provided</scope>
+			<version>${javax.validation.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${org.hibernate.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>${org.hibernate.jpa.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -62,6 +80,51 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+			<version>${servlet-api.version}</version>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j4slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- apache -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${apache.codec.version}</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>
