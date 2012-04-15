@@ -24,7 +24,6 @@ public class SessionValidateFilter extends OncePerRequestFilter {
 			HttpServletResponse response) throws IOException {
 		String url = request.getRequestURL().toString();
 		HttpSession session = request.getSession(true);
-		System.out.println(url);
 		if (url.endsWith("DreamGO/")) {
 			return;
 		}

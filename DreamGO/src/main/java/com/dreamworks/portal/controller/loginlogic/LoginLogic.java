@@ -38,4 +38,22 @@ public class LoginLogic {
 		request.setAttribute("msg", "登陆成功");
 		return "common/success";
 	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String register(User user, BindingResult result, Model model,
+			HttpServletRequest request) {
+		uservalid.validate(user, result);
+		if (result.hasErrors()) {
+			model.addAttribute("user", user);
+			return "entrance/register";
+		}
+		userservice.registerUser(user, result);
+		if (result.hasErrors()) {
+			model.addAttribute("user", user);
+			return "entrance/register";
+		}
+		request.setAttribute("msg", "注册成功");
+		return "common/success";
+
+	}
 }

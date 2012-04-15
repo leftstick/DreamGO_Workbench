@@ -37,7 +37,12 @@ public class UserService {
 		return userdao.findByUserName(userName);
 	}
 
-	public void registerUser(User user) {
+	public void registerUser(User user, BindingResult errors) {
+		User u = userdao.findByUserName(user.getUserName());
+		if (u != null) {
+			errors.rejectValue("userName", "username.username.exists");
+			return;
+		}
 		user.setUserPassword(DigestUtils.md5Hex(user.getUserPassword()));
 		userdao.saveUser(user);
 	}

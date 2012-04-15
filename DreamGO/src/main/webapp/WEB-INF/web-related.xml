@@ -11,6 +11,8 @@
 	<mvc:annotation-driven />
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
 	<mvc:view-controller path="/" view-name="entrance/login" />
+	<mvc:view-controller path="/entrance/register" view-name="entrance/register"/>
+	<mvc:view-controller path="/common/terms" view-name="common/terms"/>
 	<!-- config the dreamgo.properties -->
 	<util:properties id="profile"
 		location="/WEB-INF/profile/dreamgo.properties" />

@@ -3,8 +3,8 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/views/common/header_head.jsp"%>
-<link href="${resources}/login.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="${resources}/login.js"></script>
+<link href="${resources}/entrance/login.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="${resources}/entrance/login.js"></script>
 <title>梦想GO</title>
 </head>
 <body>
@@ -30,6 +30,12 @@
 	</tr>
 	<tr>
 	    <td colspan="2"><input id="login" type="submit" value="登录"/></td>
+	</tr>
+	<tr>
+	    <td colspan="2">还没有雪球账号?</td>
+	</tr>
+	<tr>
+	    <td colspan="2"><a href="/DreamGO/entrance/register">立即注册</a></td>
 	</tr>
 	</form:form>
 	</table>

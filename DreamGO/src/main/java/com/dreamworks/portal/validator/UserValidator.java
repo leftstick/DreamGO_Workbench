@@ -27,7 +27,6 @@ public class UserValidator implements Validator {
 			errors.rejectValue("userName", "username.length");
 		if (pwd.length() > 20)
 			errors.rejectValue("userPassword", "userpassword.length");
-
 	}
 
 }
