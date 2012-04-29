@@ -2,8 +2,8 @@
 <%@ include file="/WEB-INF/views/common/header_top.jsp"%>
 <html>
 <head>
-<%@ include file="/WEB-INF/views/common/header_head.jsp"%>
 <link href="${resources}/entrance/register.css" rel="stylesheet" type="text/css">
+<%@ include file="/WEB-INF/views/common/header_head.jsp"%>
 <script type="text/javascript" src="${resources}/entrance/register.js"></script>
 <title>梦想GO->注册</title>
 </head>

@@ -1,18 +1,19 @@
 $(document).ready(function() {
 	
+	
 	$("form :input.required").each(function() {
 		var $required = $("<strong class='high'> *</strong>"); // 创建元素
 		$(this).parent().append($required); // 然后将它追加到文档中
 	});
 	
-	function checkUserName(obj){
+	function checkUserName(userName){
 		var boo = true;
 		 $('#userNameError').css("color","red");
 		 var errorMsg;
-		    if( obj.value === "" || $.trim(obj.value) === ""){
+		    if( userName === "" || $.trim(userName) === ""){
 		    	errorMsg = "请输入至少5位的用户名.";
 		    	boo = false;
-		    }else if( obj.value.length < 5 ){
+		    }else if( userName.length < 5 ){
 				errorMsg = "用户名格式不正确";
 				boo = false;
 			}else{
@@ -23,14 +24,14 @@ $(document).ready(function() {
 			return boo;
 	}
 	
-	function checkPasswrod1(obj){
+	function checkPasswrod1(password){
 		var boo = true;
 		 $('#password1Error').css("color","red");
 		 var errorMsg;
-		    if( obj.value === "" || $.trim(obj.value) === ""){
+		    if( password === "" || $.trim(password) === ""){
 		    	errorMsg = "请输入密码.";
 		    	boo = false;
-		    }else if( obj.value.length < 6 || obj.value.length > 16 ){
+		    }else if( password.length < 6 || password.length > 16 ){
 				errorMsg = "登录密码不少于6位，不多于16位";
 				boo = false;
 			}else{
@@ -41,14 +42,14 @@ $(document).ready(function() {
 			return boo;
 	 }
 	
-	function checkPassword2(obj){
+	function checkPassword2(password){
 		var boo = true;
 		 $('#password2Error').css("color","red");
 		 var errorMsg;
-		    if( obj.value === "" || $.trim(obj.value) === ""){
+		    if( password === "" || $.trim(password) === ""){
 		    	errorMsg = "请输入重复密码.";
 		    	boo = false;
-		    }else if( obj.value  !==  $('#password1').value){
+		    }else if( password  !==  $('#password1').val()){
 				errorMsg = "两次输入的密码不相符";
 				boo = false;
 			}else{
@@ -62,27 +63,30 @@ $(document).ready(function() {
 	$('form :input').blur(function(){
 		 //验证用户名
 		 if( $(this).is('#userName') ){
-			    checkUserName(this);
+			    checkUserName(this.value);
 			 }
 		 //验证密码
 		 if( $(this).is('#password1') ){
-			 checkPasswrod1(this);
+			 checkPasswrod1(this.value);
 		 }
 		 if( $(this).is('#password2') ){
-			 checkPassword2(this);
+			 checkPassword2(this.value);
 		 }
 	});
 
 
-	$('#register').click(function(e) {
-		if(!checkUserName($('#userName'))){
-			e.preventDefault();
+	$('#user').submit(function() {
+		if(!checkUserName($('#userName').val()) || !checkPasswrod1($('#password1').val()) || !checkPassword2($('#password2').val())){
+			return false;
 		}
-		if(!checkPasswrod1($('#password1'))){
-			e.preventDefault();
-		}
-		if(!checkPassword2($('#password2'))){
-			e.preventDefault();
-		}
+		var user = {userName : $('#userName').val(),userPassword : $('#password2').val()};
+		$.postJSON(this.action, user, function(data) {
+			alert("success");
+		},function(jqXHR, textStatus, errorThrown){
+			alert("jqXHR = "+jqXHR);
+			alert("textStatus = "+textStatus);
+			alert("errorThrown = "+errorThrown);
+		});
+		return false;
 	});
 });

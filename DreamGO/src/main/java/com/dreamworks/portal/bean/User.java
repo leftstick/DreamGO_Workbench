@@ -20,6 +20,10 @@ public class User extends BaseBean {
 	@Column(name = "user_password", unique = false, nullable = true)
 	private String userPassword;
 
+	public User() {
+		//
+	}
+
 	public String getUserName() {
 		return userName;
 	}

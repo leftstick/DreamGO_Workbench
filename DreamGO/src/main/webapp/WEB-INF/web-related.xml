@@ -5,14 +5,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
 
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
 	<mvc:view-controller path="/" view-name="entrance/login" />
-	<mvc:view-controller path="/entrance/register" view-name="entrance/register"/>
-	<mvc:view-controller path="/common/terms" view-name="common/terms"/>
+	<mvc:view-controller path="/entrance/register"
+		view-name="entrance/register" />
+	<mvc:view-controller path="/common/terms"
+		view-name="common/terms" />
 	<!-- config the dreamgo.properties -->
 	<util:properties id="profile"
 		location="/WEB-INF/profile/dreamgo.properties" />
@@ -24,6 +31,5 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp" />
-		<property name="contentType" value="text/html;charset=UTF-8"></property>
 	</bean>
 </beans>
