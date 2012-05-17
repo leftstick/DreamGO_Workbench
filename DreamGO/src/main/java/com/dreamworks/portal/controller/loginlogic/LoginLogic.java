@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,8 +52,8 @@ public class LoginLogic {
 		// model.addAttribute("user", user);
 		// return "entrance/register";
 		// }
-//		 userservice.registerUser(user);
-		if(true)
+		// userservice.registerUser(user);
+		if (true)
 			throw new Exception("hello word");
 		// if (result.hasErrors()) {
 		// model.addAttribute("user", user);
@@ -63,5 +63,11 @@ public class LoginLogic {
 		System.out.println(user);
 		return Collections.singletonMap("id", user);
 
+	}
+
+	@ExceptionHandler(Exception.class)
+	@ResponseBody
+	public String dummyExceptionHandler(Exception e) {
+		return e.getMessage();
 	}
 }

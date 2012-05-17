@@ -34,10 +34,7 @@ $(document).ready(function() {
 				alert("id = " + data["id"]);
 				alert("userName2 = " + data.id.userName);
 			}, function(jqXHR, textStatus, errorThrown) {
-				alert("jqXHR = " + jqXHR);
-				console.log(jqXHR);
-				alert("textStatus = " + textStatus);
-				alert("errorThrown = " + errorThrown);
+				alert(jqXHR.responseText);
 			});
 		}
 	});
