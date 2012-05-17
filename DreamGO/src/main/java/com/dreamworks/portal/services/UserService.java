@@ -37,10 +37,10 @@ public class UserService {
 		return userdao.findByUserName(userName);
 	}
 
-	public void registerUser(User user, BindingResult errors) {
+	public void registerUser(User user) {
 		User u = userdao.findByUserName(user.getUserName());
 		if (u != null) {
-			errors.rejectValue("userName", "username.username.exists");
+			System.err.println("the user exists");
 			return;
 		}
 		user.setUserPassword(DigestUtils.md5Hex(user.getUserPassword()));

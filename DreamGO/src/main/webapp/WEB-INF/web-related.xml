@@ -8,12 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd ">
 
 	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven>
-		<mvc:message-converters>
-			<bean
-				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
-		</mvc:message-converters>
-	</mvc:annotation-driven>
+	<mvc:annotation-driven/>
 	<!-- Forwards requests to the "/" resource to the "welcome" view -->
 	<mvc:view-controller path="/" view-name="entrance/login" />
 	<mvc:view-controller path="/entrance/register"

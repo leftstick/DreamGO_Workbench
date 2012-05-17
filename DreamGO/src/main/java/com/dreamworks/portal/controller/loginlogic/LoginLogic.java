@@ -52,7 +52,9 @@ public class LoginLogic {
 		// model.addAttribute("user", user);
 		// return "entrance/register";
 		// }
-		// userservice.registerUser(user, result);
+//		 userservice.registerUser(user);
+		if(true)
+			throw new Exception("hello word");
 		// if (result.hasErrors()) {
 		// model.addAttribute("user", user);
 		// return "entrance/register";

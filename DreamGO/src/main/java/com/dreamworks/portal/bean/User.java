@@ -17,7 +17,7 @@ public class User extends BaseBean {
 	@Column(name = "user_name", unique = true, nullable = false)
 	private String userName;
 
-	@Column(name = "user_password", unique = false, nullable = true)
+	@Column(name = "user_password", unique = false, nullable = false)
 	private String userPassword;
 
 	public User() {
